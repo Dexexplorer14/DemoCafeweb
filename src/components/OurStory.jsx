@@ -33,7 +33,7 @@ export default function OurStory() {
             <div className="relative mx-auto h-28 w-28 overflow-hidden md:h-36 md:w-36">
               <CornerBrackets className="z-10" />
               <img
-                src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=300&h=300&fit=crop&auto=format"
+                src="https://images.pexels.com/photos/887827/pexels-photo-887827.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Founder of Wild Sugar Patisserie"
                 className="h-full w-full rounded-full object-cover"
                 loading="lazy"

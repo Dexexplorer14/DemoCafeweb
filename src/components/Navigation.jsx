@@ -36,8 +36,11 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile floating pill dock — Home + Menu only */}
-      <nav className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2 lg:hidden">
-        <div className="flex items-center gap-1 rounded-full border border-white/10 backdrop-blur-xl bg-white/10 px-5 py-2 shadow-2xl shadow-black/40">
+      <nav 
+        className="fixed left-1/2 z-50 w-max max-w-[calc(100vw-1.5rem)] -translate-x-1/2 lg:hidden overflow-hidden"
+        style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 1.25rem)" }}
+      >
+        <div className="flex w-full items-center justify-center gap-1 sm:gap-2 rounded-full border border-white/10 backdrop-blur-xl bg-white/10 px-3 sm:px-5 py-2 shadow-2xl shadow-black/40 overflow-x-auto scrollbar-hide">
           {[
             { id: 'home', label: 'Home', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
             { id: 'menu', label: 'Menu', icon: 'M4 6h16M4 12h16M4 18h16' },
@@ -49,7 +52,7 @@ export default function Navigation() {
                 if (item.id === 'home') window.scrollTo({ top: 0, behavior: 'smooth' })
                 else if (item.id === 'menu') document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })
               }}
-              className="touch-manipulation flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-medium text-sage hover:text-cream active:scale-95 transition-all"
+              className="touch-manipulation flex flex-shrink-0 items-center gap-1 sm:gap-1.5 rounded-full px-2 sm:px-4 py-1.5 text-xs font-medium text-sage hover:text-cream active:scale-95 transition-all"
             >
               <svg
                 aria-hidden="true"
@@ -61,15 +64,15 @@ export default function Navigation() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
               </svg>
-              {item.label}
+              <span className="hidden sm:inline">{item.label}</span>
             </button>
           ))}
-          <span className="mx-1 h-4 w-px bg-white/10" />
+          <span className="mx-1 h-4 w-px flex-shrink-0 bg-white/10" />
           <a
             href="https://www.zomato.com/belgaum/wild-sugar-patisserie-cafe-1-belgaum-locality/order"
             target="_blank"
             rel="noopener noreferrer"
-            className="touch-manipulation rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors"
+            className="touch-manipulation flex-shrink-0 rounded-full px-3 py-1.5 text-[11px] sm:text-xs font-semibold transition-colors"
             style={{ backgroundColor: '#E23744', color: 'white' }}
           >
             Zomato
@@ -78,7 +81,7 @@ export default function Navigation() {
             href="https://www.swiggy.com/city/belgaum/wild-sugar-ayodhya-nagar-rest102475"
             target="_blank"
             rel="noopener noreferrer"
-            className="touch-manipulation rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors"
+            className="touch-manipulation flex-shrink-0 rounded-full px-3 py-1.5 text-[11px] sm:text-xs font-semibold transition-colors"
             style={{ backgroundColor: '#FC8019', color: 'white' }}
           >
             Swiggy

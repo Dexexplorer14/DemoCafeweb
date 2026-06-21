@@ -2,21 +2,21 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 
 const heroImage = {
-  src: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800&h=1000&fit=crop&auto=format',
+  src: 'https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=1200',
   alt: 'Triple Layered Chocolate Mousse Cake — Wild Sugar bestseller',
 }
 
 const mobileSlides = [
   {
-    src: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1200&h=900&fit=crop&auto=format',
+    src: 'https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=1200',
     alt: 'Chocolate cake slice with layers',
   },
   {
-    src: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&h=900&fit=crop&auto=format',
+    src: 'https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=1200',
     alt: 'Cozy cafe interior with warm lighting',
   },
   {
-    src: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&h=900&fit=crop&auto=format',
+    src: 'https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1200',
     alt: 'Crispy chicken burger on dark surface',
   },
 ]

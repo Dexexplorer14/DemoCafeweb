@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@theme {
+  --font-fraunces: "Fraunces", serif;
+  --font-cormorant: "Cormorant Garamond", serif;
+  --font-inter: "Inter", sans-serif;
+
+  --color-ink: #0A0A0A;
+  --color-ink-soft: #141716;
+  --color-teal-900: #0F4A52;
+  --color-teal-800: #12525B;
+  --color-teal-700: #1A636D;
+  --color-peach: #FCC48B;
+  --color-peach-dark: #F5AD66;
+  --color-peach-tint: #FDE3C9;
+  --color-cream: #F5EDE2;
+  --color-sage: #9FB5B3;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Skeleton shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.05) 25%,
+    rgba(252,196,139,0.15) 50%,
+    rgba(255,255,255,0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Peach glow pulse for CTA */
+@keyframes pulse-peach {
+  0%, 100% { box-shadow: 0 0 5px rgba(252, 196, 139, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(252, 196, 139, 0.5); }
+}
+.animate-pulse-peach {
+  animation: pulse-peach 4s ease-in-out infinite;
+}
+
+/* Page loader: bracket draw-in */
+@keyframes draw-in {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.loader-bracket {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: draw-in 0.4s ease forwards;
+}
+.loader-bracket:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.loader-monogram {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: draw-in 0.6s ease 0.3s forwards;
+}
+.loader-script {
+  opacity: 0;
+  animation: fade-up 0.3s ease 0.9s forwards;
+}
+
+/* Bracket corner SVG as a repeating utility */
+.bracket-corners {
+  position: relative;
+}
+.bracket-corners::before,
+.bracket-corners::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--color-peach);
+  border-style: solid;
+}
+.bracket-corners::before {
+  top: 8px;
+  left: 8px;
+  border-width: 2px 0 0 2px;
+}
+.bracket-corners::after {
+  bottom: 8px;
+  right: 8px;
+  border-width: 0 2px 2px 0;
+}
+.bracket-corners-top-right::before {
+  top: 8px;
+  right: 8px;
+  border-width: 2px 2px 0 0;
+}
+.bracket-corners-bottom-left::after {
+  bottom: 8px;
+  left: 8px;
+  border-width: 0 0 2px 2px;
+}
+
+/* Menu card bracket corner hover */
+.card-bracket {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--color-peach);
+  border-style: solid;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.card-bracket-tl { top: 6px; left: 6px; border-width: 2px 0 0 2px; }
+.card-bracket-tr { top: 6px; right: 6px; border-width: 2px 2px 0 0; }
+.card-bracket-bl { bottom: 6px; left: 6px; border-width: 0 0 2px 2px; }
+.card-bracket-br { bottom: 6px; right: 6px; border-width: 0 2px 2px 0; }
+.group:hover .card-bracket { opacity: 1; }
+
+/* Custom peach focus ring */
+*:focus-visible {
+  outline: 2px solid var(--color-peach);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
